@@ -1,23 +1,28 @@
-const getLoggingStyle = () => {
-    chrome.storage.local.get(
-        { loggingStyle: 'prettier' },
-        (items) => {
-            return items.loggingStyle;
-        }
-    );
-};
-
 const badgeClicked = () => {
     let pageData;
-    let loggingStyle = getLoggingStyle();
+    let loggingStyle = 'prettier';
 
     const logPageData = () => {
+        let date = new Date(Date.now()).toLocaleTimeString();
+
         if (loggingStyle === 'prettier') {
-            console.log('Data:');
-            console.log(angular.element('.unqorkio-form').scope().submission.data);
+            let groupLabel = '%cPage Data (' + date + "):"
+            let logStyling = 'color: cyan; font-weight: bold;';
+            console.group(groupLabel, logStyling);
+            console.log(pageData);
+
+            if (pageData.validationErrors.length > 0) {
+                console.warn('Validation errors were found.');
+            }
+
+            if (Object.keys(pageData.integratorErrors).length > 0) {
+                console.warn('Integration errors were found.');
+            }
+
+            console.groupEnd(groupLabel);
         }
         else {
-            console.log(angular.element('.unqorkio-form').scope().submission);
+            console.log(pageData);
         }
     }
 
