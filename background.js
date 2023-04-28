@@ -1,6 +1,5 @@
-const badgeClicked = () => {
+const badgeClicked = (loggingStyle) => {
     let pageData;
-    let loggingStyle = 'prettier';
 
     const logPageData = () => {
         let date = new Date(Date.now()).toLocaleTimeString();
@@ -35,10 +34,26 @@ const badgeClicked = () => {
     }
 }
 
+let loggingStyle;
+
+chrome.storage.local.get(
+    { loggingStyle: 'prettier' },
+    (items) => {
+        loggingStyle = items.loggingStyle;
+    }
+);
+
+chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'local' && changes) {
+        loggingStyle = changes.loggingStyle.newValue;
+    }
+});
+
 chrome.action.onClicked.addListener((tab) => {
     chrome.scripting.executeScript({
         target : {tabId : tab.id},
         func : badgeClicked,
+        args : [ loggingStyle ],
         world : 'MAIN'
     })
 });

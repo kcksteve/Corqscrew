@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Corqscrew",
+  "name": "Qorkscrew",
   "description": "Assists in debugging unqork applications.",
   "version": "1.0",
   "action": {
