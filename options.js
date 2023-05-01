@@ -1,3 +1,4 @@
+//Save options to local chrome storage
 const saveOptions = () => {
     const loggingStyle = document.getElementById('loggingStyle').value;
 
@@ -13,6 +14,9 @@ const saveOptions = () => {
     );
 };
 
+document.getElementById('save').addEventListener('click', saveOptions);
+
+//Get options from local chrome storage when option page opens
 const restoreOptions = () => {
     chrome.storage.local.get(
         { loggingStyle: 'prettier' },
@@ -23,4 +27,3 @@ const restoreOptions = () => {
 };
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('save').addEventListener('click', saveOptions);
