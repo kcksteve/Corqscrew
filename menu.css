@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(30, 30, 30)
+}
+
+.btnMain {
+    border: 0;
+    background: none;
+    background-color: rgb(63, 63, 63);
+    color: rgb(255, 255, 255);
+    font-weight: 350;
+    font-size: 12px;
+    box-shadow: none;
+    border-radius: 0px;
+    width: 160px;
+    height: 40px;
+    padding: 14px 20px;
+    margin: 5px 5px;
+}
+
+.btnMain:hover {
+    background-color: rgb(37, 109, 119);
+}
+
+.btnMain:active {
+    background-color: rgb(37, 100, 109);
+    color: rgb(170, 170, 170);
+}
+
+.btnMain:focus {
+    outline-color: rgb(160, 160, 160);;
+    outline-offset: 0px;
+    outline-style: solid;
+}
+
+.txtInput {
+    background-color: rgb(46, 46, 46);
+    color: rgb(255, 255, 255);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(102, 102, 102);;
+    width: 160px;
+    margin: 2px 5px;
+}
+
+.txtInput:focus {
+    outline-color: rgb(160, 160, 160);;
+    outline-offset: 0px;
+    outline-style: solid;
+}
+
+hr {
+    border-color: rgb(80, 80, 80);
+    width: 160px;
+}

@@ -1,3 +1,5 @@
+let environmentList;
+
 //Save options to local chrome storage
 const saveOptions = () => {
     const loggingStyle = document.getElementById('loggingStyle').value;
@@ -22,6 +24,13 @@ const restoreOptions = () => {
         { loggingStyle: 'prettier' },
         (items) => {
             document.getElementById('loggingStyle').value = items.loggingStyle;
+        }
+    );
+
+    chrome.storage.local.get(
+        { environmentList: [] },
+        (items) => {
+            environmentList = items.environmentList;
         }
     );
 };
