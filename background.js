@@ -57,7 +57,7 @@ const debugLog = (loggingStyle) => {
             let mainGroupLabel = '%cUnqork Data Found (' + date + '):'
             let subGroupLabel = '%cSubmission Data'
             let cacheGroupLabel = '%cCache Data'
-            const logStyling = 'color: cyan; font-weight: bold;';
+            const logStyling = 'color: cyan; font-weight: bold; background: rgb(40,40,40);';
             
             console.group(mainGroupLabel, logStyling);
             console.group(subGroupLabel, logStyling);
@@ -135,7 +135,7 @@ const updateData = (param, value) => {
             angular.element('.unqorkio-form').scope().submission.data[param] = value;
 
             let date = new Date(Date.now()).toLocaleTimeString();
-            const logStyling = 'color: cyan; font-weight: bold;';
+            const logStyling = 'color: cyan; font-weight: bold; background: rgb(40,40,40);';
             let formattedValue;
             if (!value) {
                 formattedValue = `""`;
@@ -179,7 +179,7 @@ const deleteData = (param, value) => {
         try {
             delete angular.element('.unqorkio-form').scope().submission.data[param];
             let date = new Date(Date.now()).toLocaleTimeString();
-            const logStyling = 'color: cyan; font-weight: bold;';
+            const logStyling = 'color: cyan; font-weight: bold; background: rgb(40,40,40);';
             console.log('%cUnqork Data Removed (' + date + '): ' + param, logStyling);
         }
         catch {
@@ -224,7 +224,7 @@ const triggerComponent = (name) => {
             if (typeof component != 'undefined') {
                 component.execute();
                 let date = new Date(Date.now()).toLocaleTimeString();
-                const logStyling = 'color: cyan; font-weight: bold;';
+                const logStyling = 'color: cyan; font-weight: bold; background: rgb(40,40,40);';
                 console.log('%cUnqork Component Triggered (' + date + '): ' + name, logStyling);
             }
             else {
